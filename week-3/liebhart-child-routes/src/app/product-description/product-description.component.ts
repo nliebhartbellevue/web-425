@@ -1,3 +1,9 @@
+/**
+ * Title: product-description.compoent.ts
+ * Author: Nathaniel Liebhart
+ * Date: January 20, 2020
+ * Description: product description component ts file
+ */
 import { Component, OnInit } from "@angular/core";
 
 @Component({

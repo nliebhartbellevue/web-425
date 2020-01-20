@@ -1,3 +1,9 @@
+/**
+ * Title: app.compoent.ts
+ * Author: Nathaniel Liebhart
+ * Date: January 20, 2020
+ * Description: root component ts file
+ */
 import { Component } from "@angular/core";
 
 @Component({

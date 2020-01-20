@@ -1,3 +1,9 @@
+/**
+ * Title: home.compoent.ts
+ * Author: Nathaniel Liebhart
+ * Date: January 20, 2020
+ * Description: home component ts file
+ */
 import { Component, OnInit } from "@angular/core";
 
 @Component({

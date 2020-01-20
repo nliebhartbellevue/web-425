@@ -1,3 +1,9 @@
+/**
+ * Title: user.compoent.ts
+ * Author: Nathaniel Liebhart
+ * Date: January 20, 2020
+ * Description: user component ts file
+ */
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
