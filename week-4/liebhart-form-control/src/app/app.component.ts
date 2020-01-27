@@ -1,3 +1,9 @@
+/**
+ * Title: app.component.ts
+ * Author: Nathaniel Liebhart
+ * Date: January 27, 2020
+ * Description: this is the app ts file
+ */
 import { Component } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
