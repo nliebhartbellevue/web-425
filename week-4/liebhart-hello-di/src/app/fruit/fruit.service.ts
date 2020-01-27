@@ -1,3 +1,9 @@
+/**
+ * Title: fruit.service.ts
+ * Author: Nathaniel Liebhart
+ * Date: January 27, 2020
+ * Description: this file handles the business logic for the fruit class
+ */
 import { Injectable } from '@angular/core';
 import { Fruit } from './fruit';
 

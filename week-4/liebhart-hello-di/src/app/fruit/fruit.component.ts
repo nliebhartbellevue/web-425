@@ -1,3 +1,9 @@
+/**
+ * Title: fruit.component.ts
+ * Author: Nathaniel Liebhart
+ * Date: January 27, 2020
+ * Description: this is the fruit component file
+ */
 import { Component, OnInit } from '@angular/core';
 import { Fruit } from './fruit';
 import { FruitService } from './fruit.service';
