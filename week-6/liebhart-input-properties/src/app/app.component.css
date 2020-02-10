@@ -1,0 +1,15 @@
+  
+.sideNav {
+    border: 1px solid #333;
+    height: 89.5vh;
+  }
+  
+  .stockPurchase {
+    margin: 50px;
+    text-align: center;
+  }
+  
+  input{
+    width: 50%;
+    font-size: 22px;
+  }
