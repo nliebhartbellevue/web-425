@@ -1,0 +1,65 @@
+<mat-toolbar class="menu" role="header" color="primary">
+  <mat-toolbar-row>
+    <button mat-button class="toolbar__icon-button mat-button">
+      <mat-icon>web</mat-icon>
+      <span style="margin-left: 5px !important">Exercise 6.3</span>
+    </button>
+
+    <div fxFlex></div>
+
+    <button
+      mat-icon-button
+      class="toolbar__icon-button"
+      [matMenuTriggerFor]="menu"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>perm_contact_calendar</mat-icon>
+        <span>My Profile</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="mainBody parent">
+  <div class="sideNav" fxFlex="20%">
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+      <mat-sidenav-content>Main content</mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <div>
+      <button
+        style="width: 100%;"
+        mat-raised-button
+        color="primary"
+        class="mat-button"
+      >
+        Home
+      </button>
+    </div>
+  </div>
+
+  <div class="stockAmount" fxFlex="80%">
+    <h1>
+      AppComponent received: {{ priceQuote?.stockSymbol }}
+      {{ priceQuote?.lastPrice | currency: "USD" }}
+    </h1>
+    <br />
+    <h2>
+      <app-price-quote
+        (lastPrice)="priceQuoteHandler($event)"
+      ></app-price-quote>
+    </h2>
+  </div>
+</div>
