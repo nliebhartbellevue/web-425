@@ -1,0 +1,61 @@
+<mat-toolbar class="menu" role="header" color="primary">
+  <mat-toolbar-row>
+    <button routerLink="/" mat-button class="toolbar__icon-button mat-button">
+      <span style="margin-left:5px !important">WEB 425</span>
+    </button>
+    <button mat-button class="mat-button">About</button>
+    <button mat-button class="mat-button">Contact Us</button>
+    <div fxFlex></div>
+    <button class="toolbar_icon_button" [matMenuTriggerFor]="menu" mat-icon-button>
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button routerLink="/login" mat-menu-item>
+        <mat-icon> perm_contact_calendar</mat-icon>
+        <span>My Profile</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>LogOut</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="main-body" fxLayout="row">
+  <div class="sideNav" fxFlex="30%">
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <mat-toolbar>
+          <mat-toolbar-row>
+            <h2>Sidebar Menu</h2>
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div style="height: 100vh;">
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  <div class="mainContent" fxFlex="70%">
+    <mat-card style="margin: auto;margin-top: 30%;width: 50%;">
+      <mat-card-title>Login Form</mat-card-title>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+        <div>
+          <input type="text" name="telephone" ngModel required pattern="^[0-9]*$" minlength="10" #phone="ngModel"
+            [class.hasError]="phone.isValid && phone.touched">
+          <div [hidden]="phone.valid || phone.pristine">
+            <div class="error" [hidden]="!phone.hasError('minlength')">Phone has to have at least 10 digits</div>
+            <div class="error" [hidden]="!phone.hasError('required')">Phone is required</div>
+            <div class="error" [hidden]="!phone.hasError('pattern')">Only digits are allowed</div>
+          </div>
+          <button type="submit" [disabled]="f.invalid">Submit</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
