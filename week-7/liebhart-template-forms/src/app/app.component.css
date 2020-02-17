@@ -1,0 +1,19 @@
+.form-label {
+    text-align: left;
+    margin-bottom: 20px;
+}
+#username {
+    margin-left: 10px;
+}
+#ssn {
+    margin-left: 52px;
+}
+#password1 {
+    margin-left: 11px;
+}
+#password2 {
+    margin-left: 10px;
+}
+.form-btn {
+    margin-left: 80%;
+}
