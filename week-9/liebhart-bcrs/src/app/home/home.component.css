@@ -1,0 +1,47 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  color: white;
+}
+
+.sidenav-container {
+  margin-top: 72px;
+  height: 100vh;
+  background-color: #6200ee;
+}
+
+.main-card {
+  min-width: 80%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidenav-content {
+  min-width: 250px;
+  padding: 15px;
+}
+
+.sidenav-content p {
+  margin: 0;
+  padding: 0;
+}
+
+.mat-drawer-side {
+  border: 0;
+  background-color: #9c27b0;
+}
+
+.services {
+  width: 300px;
+  box-shadow: none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.header-image {
+  width: 15px;
+}

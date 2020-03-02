@@ -23,9 +23,12 @@ import { MatDividerModule } from "@angular/material/divider";
 import { FlexLayoutModule } from "@angular/flex-layout";
 // Components
 import { AppComponent } from "./app.component";
+import { HomeComponent } from "./home/home.component";
+import { InvoiceComponent } from "./invoice/invoice.component";
+import { ProductService } from "./utils/product.service";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent, InvoiceComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -42,7 +45,8 @@ import { AppComponent } from "./app.component";
     MatDividerModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [ProductService],
+  entryComponents: [InvoiceComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

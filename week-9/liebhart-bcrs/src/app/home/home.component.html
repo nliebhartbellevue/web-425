@@ -1,0 +1,190 @@
+<!-- Top-Navbar Toolbar -->
+<mat-toolbar class="menu" role="header" color="primary">
+  <mat-toolbar-row>
+    <button mat-button class="toolbar_icon-button mat-button">
+      <mat-icon>menu</mat-icon>
+      <span style="margin-left: 5px !important">BCRS</span>
+    </button>
+
+    <div fxFlex></div>
+
+    <button
+      mat-icon-button
+      class="toolbar_icon-button"
+      [matMenuTriggerFor]="menu"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>perm_contact_calendar</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Sidenav Container -->
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav Content -->
+  <mat-sidenav class="sidenav-content" mode="side" opened>
+    <p>
+      <span class="mat-body-4 primary-text-color" color="primary"
+        >Customer:</span
+      >Placeholder Text
+    </p>
+    <p>
+      <span class="mat-body-4 primary-text-color" color="primary"
+        >Contact Number:</span
+      >555-555-5555
+    </p>
+    <p>
+      <span class="mat-body-4 primary-text-color" color="primary">Email:</span
+      >test@email.com
+    </p>
+  </mat-sidenav>
+
+  <!-- Sidenav Content -->
+  <mat-sidenav-content>
+    <mat-card class="main-card" fxFlex="80%">
+      <mat-card-content
+        fxLayout="row"
+        fxLayout.xs="column"
+        fxLayoutWrap
+        fxLayoutGap="0.5%"
+      >
+        <section class="services-section" fxFlex="50%">
+          <h1>Services</h1>
+          <mat-card class="services" *ngFor="let product of products">
+            <!-- TO DO: Refactor to loop through services with services component -->
+            <mat-card-header>
+              <div mat-card-avatar class="header-image">
+                <mat-icon>verified_user</mat-icon>
+              </div>
+              <mat-card-title>{{ product.name }}</mat-card-title>
+              <mat-card-subtitle>${{ product.price }}</mat-card-subtitle>
+              <div fxFlex></div>
+              <mat-checkbox
+                [ngModelOptions]="{ standalone: true }"
+                [(ngModel)]="product.checked"
+                (change)="getCheckboxes()"
+              ></mat-checkbox>
+            </mat-card-header>
+          </mat-card>
+          <!-- <mat-card class="services">
+              <mat-card-header>
+                <div mat-card-avatar class="header-image">
+                  <mat-icon>visibility_off</mat-icon>
+                </div>
+                <mat-card-title>Spyware Removal</mat-card-title>
+                <mat-card-subtitle>$99.99</mat-card-subtitle>
+                <div fxFlex></div>
+                <mat-checkbox name="spywareRemoval" ngModel></mat-checkbox>
+              </mat-card-header>
+            </mat-card>
+            <mat-card class="services">
+              <mat-card-header>
+                <div mat-card-avatar class="header-image">
+                  <mat-icon>memory</mat-icon>
+                </div>
+                <mat-card-title>RAM Upgrade</mat-card-title>
+                <mat-card-subtitle>$129.99</mat-card-subtitle>
+                <div fxFlex></div>
+                <mat-checkbox name="ramUpgrade" ngModel></mat-checkbox>
+              </mat-card-header>
+            </mat-card>
+            <mat-card class="services">
+              <mat-card-header>
+                <div mat-card-avatar class="header-image">
+                  <mat-icon>developer_board</mat-icon>
+                </div>
+                <mat-card-title>Software Installation</mat-card-title>
+                <mat-card-subtitle>$49.99</mat-card-subtitle>
+                <div fxFlex></div>
+                <mat-checkbox
+                  name="softwareInstallation"
+                  ngModel
+                ></mat-checkbox>
+              </mat-card-header>
+            </mat-card>
+            <mat-card class="services">
+              <mat-card-header>
+                <div mat-card-avatar class="header-image">
+                  <mat-icon>build</mat-icon>
+                </div>
+                <mat-card-title>Tuneup</mat-card-title>
+                <mat-card-subtitle>$89.99</mat-card-subtitle>
+                <div fxFlex></div>
+                <mat-checkbox name="tuneup" ngModel></mat-checkbox>
+              </mat-card-header>
+            </mat-card>
+            <mat-card class="services">
+              <mat-card-header>
+                <div mat-card-avatar class="header-image">
+                  <mat-icon>keyboard</mat-icon>
+                </div>
+                <mat-card-title>Keyboard Cleaning</mat-card-title>
+                <mat-card-subtitle>$45.00</mat-card-subtitle>
+                <div fxFlex></div>
+                <mat-checkbox name="keyboardCleaning" ngModel></mat-checkbox>
+              </mat-card-header>
+            </mat-card>
+            <mat-card class="services">
+              <mat-card-header>
+                <div mat-card-avatar class="header-image">
+                  <mat-icon>disc_full</mat-icon>
+                </div>
+                <mat-card-title>Disk Cleanup</mat-card-title>
+                <mat-card-subtitle>$149.99</mat-card-subtitle>
+                <div fxFlex></div>
+                <mat-checkbox name="discCleanup" ngModel></mat-checkbox>
+              </mat-card-header>
+            </mat-card> -->
+        </section>
+        <section class="fees-section" fxFlex="50%">
+          <h1>Fees</h1>
+          <mat-form-field class="full-width">
+            <input
+              name="parts"
+              type="number"
+              step="0.01"
+              matInput
+              placeholder="Parts (Enter Value)"
+              ngModel
+              required
+              #parts="ngModel"
+            />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              name="labor"
+              matInput
+              placeholder="Labor (Enter Hours) @$50.00/hr"
+              ngModel
+              required
+              pattern="[0-9]*"
+              #labor="ngModel"
+            />
+          </mat-form-field>
+          <br />
+          <button
+            color="primary"
+            mat-raised-button
+            class="full-width"
+            (click)="getInvoice()"
+          >
+            Calculate
+          </button>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>

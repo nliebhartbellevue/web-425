@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Invoice</h2>
+<mat-dialog-content>
+  <ul>
+    <li *ngFor="let selectedProduct of data?.selectedProducts">
+      <div fxLayout="row">
+        <div class="invoice-name">
+          {{ selectedProduct.name }}
+        </div>
+        <div class="rightSide">
+          {{ selectedProduct.price }}
+        </div>
+      </div>
+    </li>
+  </ul>
+  Total: {{ totalCost | currency }}
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-taised-button class="confirm" (click)="confirm()">Confirm</button>
+</mat-dialog-actions>
