@@ -54,32 +54,34 @@
 
   <!-- Sidenav Content -->
   <mat-sidenav-content>
-    <mat-card class="main-card" fxFlex="80%">
-      <mat-card-content
-        fxLayout="row"
-        fxLayout.xs="column"
-        fxLayoutWrap
-        fxLayoutGap="0.5%"
-      >
-        <section class="services-section" fxFlex="50%">
-          <h1>Services</h1>
-          <mat-card class="services" *ngFor="let product of products">
-            <!-- TO DO: Refactor to loop through services with services component -->
-            <mat-card-header>
-              <div mat-card-avatar class="header-image">
-                <mat-icon>verified_user</mat-icon>
-              </div>
-              <mat-card-title>{{ product.name }}</mat-card-title>
-              <mat-card-subtitle>${{ product.price }}</mat-card-subtitle>
-              <div fxFlex></div>
-              <mat-checkbox
-                [ngModelOptions]="{ standalone: true }"
-                [(ngModel)]="product.checked"
-                (change)="getCheckboxes()"
-              ></mat-checkbox>
-            </mat-card-header>
-          </mat-card>
-          <!-- <mat-card class="services">
+    <form #costsForm="ngForm" (ngSubmit)="onSubmit(costsForm.value)">
+      <mat-card class="main-card" fxFlex="80%">
+        <mat-card-content
+          fxLayout="row"
+          fxLayout.xs="column"
+          fxLayoutWrap
+          fxLayoutGap="0.5%"
+        >
+          <section class="services-section" fxFlex="50%">
+            <h1>Services</h1>
+            <mat-card class="services">
+              <!-- TO DO: Refactor to loop through services with services component -->
+              <mat-card-header>
+                <div mat-card-avatar class="header-image">
+                  <mat-icon>verified_user</mat-icon>
+                </div>
+                <mat-card-title>Password Reset</mat-card-title>
+                <mat-card-subtitle>$39.99</mat-card-subtitle>
+                <div fxFlex></div>
+                <mat-checkbox
+                  (change)="OnChange($event)"
+                  checked="IsChecked"
+                  name="passwordReset"
+                  ngModel
+                ></mat-checkbox>
+              </mat-card-header>
+            </mat-card>
+            <mat-card class="services">
               <mat-card-header>
                 <div mat-card-avatar class="header-image">
                   <mat-icon>visibility_off</mat-icon>
@@ -87,7 +89,11 @@
                 <mat-card-title>Spyware Removal</mat-card-title>
                 <mat-card-subtitle>$99.99</mat-card-subtitle>
                 <div fxFlex></div>
-                <mat-checkbox name="spywareRemoval" ngModel></mat-checkbox>
+                <mat-checkbox
+                  checked="false"
+                  name="spywareRemoval"
+                  ngModel
+                ></mat-checkbox>
               </mat-card-header>
             </mat-card>
             <mat-card class="services">
@@ -98,7 +104,11 @@
                 <mat-card-title>RAM Upgrade</mat-card-title>
                 <mat-card-subtitle>$129.99</mat-card-subtitle>
                 <div fxFlex></div>
-                <mat-checkbox name="ramUpgrade" ngModel></mat-checkbox>
+                <mat-checkbox
+                  checked="false"
+                  name="ramUpgrade"
+                  ngModel
+                ></mat-checkbox>
               </mat-card-header>
             </mat-card>
             <mat-card class="services">
@@ -110,6 +120,7 @@
                 <mat-card-subtitle>$49.99</mat-card-subtitle>
                 <div fxFlex></div>
                 <mat-checkbox
+                  checked="false"
                   name="softwareInstallation"
                   ngModel
                 ></mat-checkbox>
@@ -123,7 +134,11 @@
                 <mat-card-title>Tuneup</mat-card-title>
                 <mat-card-subtitle>$89.99</mat-card-subtitle>
                 <div fxFlex></div>
-                <mat-checkbox name="tuneup" ngModel></mat-checkbox>
+                <mat-checkbox
+                  checked="false"
+                  name="tuneup"
+                  ngModel
+                ></mat-checkbox>
               </mat-card-header>
             </mat-card>
             <mat-card class="services">
@@ -134,7 +149,11 @@
                 <mat-card-title>Keyboard Cleaning</mat-card-title>
                 <mat-card-subtitle>$45.00</mat-card-subtitle>
                 <div fxFlex></div>
-                <mat-checkbox name="keyboardCleaning" ngModel></mat-checkbox>
+                <mat-checkbox
+                  checked="false"
+                  name="keyboardCleaning"
+                  ngModel
+                ></mat-checkbox>
               </mat-card-header>
             </mat-card>
             <mat-card class="services">
@@ -145,46 +164,59 @@
                 <mat-card-title>Disk Cleanup</mat-card-title>
                 <mat-card-subtitle>$149.99</mat-card-subtitle>
                 <div fxFlex></div>
-                <mat-checkbox name="discCleanup" ngModel></mat-checkbox>
+                <mat-checkbox
+                  checked="false"
+                  name="discCleanup"
+                  ngModel
+                ></mat-checkbox>
               </mat-card-header>
-            </mat-card> -->
-        </section>
-        <section class="fees-section" fxFlex="50%">
-          <h1>Fees</h1>
-          <mat-form-field class="full-width">
-            <input
-              name="parts"
-              type="number"
-              step="0.01"
-              matInput
-              placeholder="Parts (Enter Value)"
-              ngModel
-              required
-              #parts="ngModel"
-            />
-          </mat-form-field>
-          <mat-form-field class="full-width">
-            <input
-              name="labor"
-              matInput
-              placeholder="Labor (Enter Hours) @$50.00/hr"
-              ngModel
-              required
-              pattern="[0-9]*"
-              #labor="ngModel"
-            />
-          </mat-form-field>
-          <br />
-          <button
-            color="primary"
-            mat-raised-button
-            class="full-width"
-            (click)="getInvoice()"
-          >
-            Calculate
-          </button>
-        </section>
-      </mat-card-content>
-    </mat-card>
+            </mat-card>
+          </section>
+          <section class="fees-section" fxFlex="50%">
+            <h1>Fees</h1>
+            <mat-form-field class="full-width">
+              <input
+                name="parts"
+                type="number"
+                step="0.01"
+                matInput
+                placeholder="Parts (Enter Value)"
+                ngModel
+                required
+                #parts="ngModel"
+                [class.hasError]="parts.isvalid && parts.touched"
+              />
+              <div [hidden]="parts.valid || parts.pristine">
+                <div class="error" [hidden]="!parts.hasError('required')">
+                  Parts is required
+                </div>
+              </div>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                name="labor"
+                matInput
+                placeholder="Labor (Enter Hours) @$50.00/hr"
+                ngModel
+                required
+                pattern="[0-9]*"
+                #labor="ngModel"
+                [class.hasError]="labor.isvalid && labor.touched"
+              />
+            </mat-form-field>
+            <br />
+            <button
+              color="primary"
+              mat-raised-button
+              class="full-width"
+              type="submit"
+              [disabled]="costsForm.invalid"
+            >
+              Calculate
+            </button>
+          </section>
+        </mat-card-content>
+      </mat-card>
+    </form>
   </mat-sidenav-content>
 </mat-sidenav-container>

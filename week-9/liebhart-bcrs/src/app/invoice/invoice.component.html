@@ -1,20 +1,76 @@
-<h2 mat-dialog-title>Invoice</h2>
-<mat-dialog-content>
-  <ul>
-    <li *ngFor="let selectedProduct of data?.selectedProducts">
-      <div fxLayout="row">
-        <div class="invoice-name">
-          {{ selectedProduct.name }}
-        </div>
-        <div class="rightSide">
-          {{ selectedProduct.price }}
-        </div>
-      </div>
-    </li>
-  </ul>
-  Total: {{ totalCost | currency }}
-</mat-dialog-content>
+<div
+  mat-dialog-content
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutWrap
+  fxLaayoutGap="1%"
+>
+  <section class="customer-info" fxFlex="30%">
+    <h1 mat-dialog-title>Invoice</h1>
+    <p>
+      <span class="mat-body-4 primary-text-color">Customer: </span>Placeholder
+      Text
+    </p>
+    <p>
+      <span class="mat-body-4 primary-text-color">Phone: </span>555-555-5555
+    </p>
+    <p>
+      <span class="mat-body-4 primary-text-color">Email: </span>test@email.com
+    </p>
+  </section>
+  <section class="invoice-info" fxFlex="70%">
+    <h3>Charges</h3>
+    <p>
+      <mat-icon>verified_user</mat-icon
+      ><span class="primary-text-color"> Password Reset: </span>${{
+        this.data.passwordReset
+      }}
+    </p>
+    <p>
+      <mat-icon>visibility_off</mat-icon
+      ><span class="primary-text-color"> Spyware Removal: </span>${{
+        this.data.spywareRemoval
+      }}
+    </p>
+    <p>
+      <mat-icon>memory</mat-icon
+      ><span class="primary-text-color"> Ram Upgrade: </span>${{
+        this.data.ramUpgrade
+      }}
+    </p>
+    <p>
+      <mat-icon>developer_board</mat-icon
+      ><span class="primary-text-color"> Software Installation: </span>${{
+        this.data.softwareInstallation
+      }}
+    </p>
+    <p>
+      <mat-icon>build</mat-icon
+      ><span class="primary-text-color"> Tune Up: </span>${{ this.data.tuneup }}
+    </p>
+    <p>
+      <mat-icon>keyboard</mat-icon
+      ><span class="primary-text-color"> Keyboard Cleaning: </span>${{
+        this.data.keyboardCleaning
+      }}
+    </p>
+    <p>
+      <mat-icon>disc_full</mat-icon
+      ><span class="primary-text-color"> Disc Cleanup: </span>${{
+        this.data.discCleanup
+      }}
+    </p>
+    <mat-divider></mat-divider>
 
-<mat-dialog-actions>
-  <button mat-taised-button class="confirm" (click)="confirm()">Confirm</button>
-</mat-dialog-actions>
+    <p><span class="primary-text-color">Parts: </span>${{ this.data.parts }}</p>
+    <p><span class="primary-text-color">Labor: </span>${{ this.data.labor }}</p>
+
+    <mat-divider></mat-divider>
+    <h2 class="primary-text-color">Total: ${{ this.data.total }}</h2>
+    <div style="float: right;" mat-dialog-actions>
+      <button mat-raised-button color="primary" [mat-dialog-close]="data">
+        Close
+      </button>
+    </div>
+  </section>
+</div>

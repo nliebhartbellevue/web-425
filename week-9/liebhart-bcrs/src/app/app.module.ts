@@ -25,7 +25,6 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { InvoiceComponent } from "./invoice/invoice.component";
-import { ProductService } from "./utils/product.service";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, InvoiceComponent],
@@ -45,7 +44,7 @@ import { ProductService } from "./utils/product.service";
     MatDividerModule,
     FlexLayoutModule
   ],
-  providers: [ProductService],
+  providers: [],
   entryComponents: [InvoiceComponent],
   bootstrap: [AppComponent]
 })
